@@ -5,63 +5,89 @@
          
 int main() {
 
-    // usaremos funções for para a torre 5 casas para a direita
-    // usaremos funções while para bispo. 5 casas a para cima e dereira
-    // usaremos funções do-while para rainha 8 casas para a esquerda
+      // usaremos for para a torre 5 casas para a direita
+     // usaremos while para bispo. 5 casas a para cima e dereita
+    // usaremos do-while para rainha 8 casas para a esquerda
+   // usaremos for e while para o cavalo, movimento em L. duas casas para baixo e uma para a esquerda
 
     // variaveis
-    int casasbispo = 1, casasrainha = 1, casastorre;  // variaveis que determinam as casas de cada peça, incializei as variáveis com 1 para nao ocorrer possiveis erros
+    int casasbispo = 1, casasrainha = 1, casastorre, casascavalo;  // variaveis que determinam as casas de cada peça, 
+                                                                  //incializei as variáveis com 1 para nao ocorrer possiveis erros,
+                                                                // as que nao foram inciadas são de loops for onde inicalizo dentro dele.
 
-    // menu de inicializaçã
+        // menu de inicializaçã
     printf("Bem Vindo Ao Jogo Xadrez revulocionário !! \n");
 
    
-    // torre
+        // torre
     printf("\nMovimentos Torre: \n");
     
-    //uso do for para os movimentos da torre 5 casas a direita 
+         //uso do for para os movimentos da torre 5 casas a direita 
 
     for (casastorre = 1; casastorre <= 5; casastorre++)
     {
-        printf("Torre: Direita\n");
+        printf("Direita\n");
     }
 
 
 
-    // bispo
+            // bispo
     printf("\nMovimentos Bispo: \n");
     
-    // uso do while para movimentos do bispo 5 casas para cima e direita
+            // uso do while para movimentos do bispo 5 casas para cima e direita
 
     while (casasbispo <= 5)
     {
-        printf("Bispo: Cima, Direita\n");
+        printf("Cima, Direita\n");
         casasbispo++ ;             // incrementação da variável
     }
 
 
     
-    // rainha 
+            // rainha 
     printf("\nMovimentos Rainha: \n");
 
-    // do while para movimetnoos da rainha 8 casas a esquerda
+            // do while para movimetnoos da rainha 8 casas a esquerda
 
     do
     {
-        printf("Rainha: Esquerda\n");
-        casasrainha++ ; // incrementar a variável
+        printf("Esquerda\n");
+        casasrainha++ ;             // incrementar a variável
 
     } while (casasrainha <= 8);
+
+
+            // cavalo
+            // usaremos dois loops aninhados, um for e um while, onde iremos controlar o movimento em L do cavalo
+            // no arquivo do desafio diz duas casas para baixo e uma para a esquerda
+
+    printf("\nMovimentos cavalo: \n");
+    
+    
+    for (casascavalo = 1; casascavalo <= 1; casascavalo++)
+    {
+        int j = 1;                       //variavel responsavel pela condição do loop while do movimento para baixo do cavalo
+
+        while (j <=2)
+        {
+            printf("Baixo \n");        // imprime o movimento baixo do cavalo
+            j++ ;                   // incrementa a variável j do lopp interno 
+        }
+
+        printf("Esquerda \n");     // imprime o movimento esquerda do cavalo
+        
+    }
+    
+
+
    
     
     // agradecer por ter jogado
     printf("\nObrigado Por jogar Xadrez Revulocionário !! \n");
     
 return 0;
+
 }
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
 
     // Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
