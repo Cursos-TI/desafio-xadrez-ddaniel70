@@ -2,98 +2,93 @@
     // Desafio de Xadrez - MateCheck
     // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
     // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-         
-int main() {
-
-      // usaremos for para a torre 5 casas para a direita
-     // usaremos while para bispo. 5 casas a para cima e dereita
-    // usaremos do-while para rainha 8 casas para a esquerda
-   // usaremos for e while para o cavalo, movimento em L. duas casas para baixo e uma para a esquerda
-
-    // variaveis
-    int casasbispo = 1, casasrainha = 1, casastorre, casascavalo;  // variaveis que determinam as casas de cada peça, 
-                                                                  //incializei as variáveis com 1 para nao ocorrer possiveis erros,
-                                                                // as que nao foram inciadas são de loops for onde inicalizo dentro dele.
-
-        // menu de inicializaçã
-    printf("Bem Vindo Ao Jogo Xadrez revulocionário !! \n");
-
-   
-        // torre
-    printf("\nMovimentos Torre: \n");
     
-         //uso do for para os movimentos da torre 5 casas a direita 
+ 
+      // Função recursiva para torre 
 
-    for (casastorre = 1; casastorre <= 5; casastorre++)
+void movimento_torre(int casas)                      // usamos a função void pois ela nao retorna nenhum valor após a operação
+{                 
+
+    if (casas > 0)                                // caso base
     {
-        printf("Direita\n");
+        printf("Direita \n");                   // imprime a direção em que a torre se movimenta, 5 casas para a direita
+        movimento_torre(casas - 1);            // chama a função novamente, reduzindo em um o seu valor
     }
-
-
-
-            // bispo
-    printf("\nMovimentos Bispo: \n");
-    
-            // uso do while para movimentos do bispo 5 casas para cima e direita
-
-    while (casasbispo <= 5)
-    {
-        printf("Cima, Direita\n");
-        casasbispo++ ;             // incrementação da variável
-    }
-
-
-    
-            // rainha 
-    printf("\nMovimentos Rainha: \n");
-
-            // do while para movimetnoos da rainha 8 casas a esquerda
-
-    do
-    {
-        printf("Esquerda\n");
-        casasrainha++ ;             // incrementar a variável
-
-    } while (casasrainha <= 8);
-
-
-            // cavalo
-            // usaremos dois loops aninhados, um for e um while, onde iremos controlar o movimento em L do cavalo
-            // no arquivo do desafio diz duas casas para baixo e uma para a esquerda
-
-    printf("\nMovimentos cavalo: \n");
-    
-    
-    for (casascavalo = 1; casascavalo <= 1; casascavalo++)
-    {
-        int j = 1;                       //variavel responsavel pela condição do loop while do movimento para baixo do cavalo
-
-        while (j <=2)
-        {
-            printf("Baixo \n");        // imprime o movimento baixo do cavalo
-            j++ ;                   // incrementa a variável j do lopp interno 
-        }
-
-        printf("Esquerda \n");     // imprime o movimento esquerda do cavalo
-        
-    }
-    
-
-
-   
-    
-    // agradecer por ter jogado
-    printf("\nObrigado Por jogar Xadrez Revulocionário !! \n");
-    
-return 0;
-
 }
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+      // função recursiva com loops aninhados for para o bispo
+      
+void movimentos_bispo(int casas)                              // funçao void nao retorna valor aṕos execução
+{                             
+    if (casas > 0)                                          // caso base
+    {
+        for (int i = 1; i <= 1 ; i++)                     // for externo controla o movimento vertical como pedido
+        {   
+            printf("\nDiagonal\n");                     // imprime que o movimento e na diagonl
+            printf("Cima \n");                         // imprime que o movimento sera na vertical
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+            for (int j = 1; j >= 1; j--)              // for interno controla o movimento horizontal 
+                {
+                    printf("Direita \n");           // imptime o movimento na horizontal
+                    movimentos_bispo(casas - 1);   // chama a função novamente, reuduzindo em um o seu valor
+                }
+        }
+    }   
+}
 
+      // função recursiva para a rainha 
 
+void movimento_rainha(int casas)              // usamos a função void pois ela nao retorna nenhum valor aṕos a operação.
+{              
+    if (casas > 0)                           // caso base
+    {
+        printf("Esquerda \n");             // imprime a direção que a rainha se movimenta, 8 casas para a esquerda
+        movimento_rainha(casas - 1);      // chama a função novamente, reduzindo em um o seu valor
+    } 
+}
+ 
+int main() {
+
+    // menu de inicialização
+
+    printf("Bem Vindo Ao Jogo Xadrez revulocionário !! \n");
+
+    // movimentos da torre
+
+    printf("\nMovimentos da Torre: \n");          // imprime qual peça esta movimentando
+    movimento_torre (5);                         //  chama a funçao recursiva da torre com o valor 5, representando 5 casas
+     
+    // movimentos do bispo
+
+    printf("\nMovimentos do Bispo (DIAGONAL): \n");          // imprime qual peça esta movimentando
+    movimentos_bispo (5);                        // chama a função recursiva so bispo com o valor 5, representando 5 casas
+
+    // movimentos da rainha
+
+    printf("\nMovimentos da Rainha: \n");        // imprime a peça que esta movimentando 
+    movimento_rainha (8);                       // chama a função recursiva da rainha com o valor 8, representando 8 casa/s
+     
+    // movimentos do cavalo
+
+    printf("\nMovimentos Do Cavalo: \n");
+
+         // usei loop complexo de múltiplas variáveis, declarei e inicei no mesmo loop
+
+    for (int casas_horizontal = 1, casas_vertical = 1; casas_horizontal <= 1; casas_horizontal++)  //loop externo responsavel pelo movimento horizontal do cavalo                                                                            
+    {
+        while (casas_vertical <= 2 && casas_horizontal <=1)     // loop interno resposável pelo movimento vertical do cavalo
+        {
+            printf("Cima \n");        // imprime o movimento cima do cavalo
+            casas_vertical++ ;       // incrementa a variável do lopp interno
+            continue;               // pula para a proxima iteração 
+        }
+
+        printf("Direita \n");     // imprime o movimento direita do cavalo
+        break;                   // sai do loop, encerrando ele
+    }
+
+    // agradecer por ter jogado o jogo
+    printf("\nObrigado Por Jogar Xadrez Revulocionário !! \n");
+    
+    return 0;
+}

@@ -73,3 +73,39 @@ Obs: É obrigatório o uso de loops aninhados na movimentação do bispo e funç
 Ao concluir este desafio, você terá um conhecimento mais profundo de estruturas complexas e elaboradas, amplamente utilizadas no mercado de trabalho. Boa sorte e boa programação!
 
 Equipe de Ensino - MateCheck
+
+
+passo a passo de compilar o código; so altere os nomes do programa de acordo de como voce salvou
+
+
+use o compilador de c, O GCC,
+
+
+verifique se está no diretório correto
+
+
+verifica se tem as bilbiotecas instaladas
+
+
+use esse comando para compilar o programa;
+
+gcc nome_do_arquivo.c -o nome_do_programa
+
+
+use esse comando para executar o programa:
+
+No Linux/macOS:
+
+./nome_do_programa
+
+
+No Windows (CMD ou PowerShell):
+
+nome_do_programa.exe
+
+
+como jogar;
+
+inicialize o programa e se divirta
+
+aluno -- Daniel Pereira Raimundo
